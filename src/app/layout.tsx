@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import './globals.css'
 
 export const metadata: Metadata = {
   description: 'Tree View Application that shows companies Assets',
-  title: 'tree-view-application'
+  title: 'Tree Assets'
 }
 
 const inter = Inter({ subsets: ['latin'] })

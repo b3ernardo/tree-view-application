@@ -59,7 +59,6 @@
             "endOfLine": "auto"
           }
       ],
-      "react-hooks/exhaustive-deps": "warn",
       "react-hooks/rules-of-hooks": "error",
       "react/react-in-jsx-scope": "off",
       "react/jsx-sort-props": [

@@ -1,0 +1,31 @@
+@media screen and (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  header #cards-menu-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.skeleton-card {
+  width: 310px;
+  height: 23px;
+  background-color: #2C2E3E;
+  border-radius: 2px;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #2C2E3E;
+  }
+  50% {
+    background-color: #3A3D50;
+  }
+  100% {
+    background-color: #2C2E3E;
+  }
+}
