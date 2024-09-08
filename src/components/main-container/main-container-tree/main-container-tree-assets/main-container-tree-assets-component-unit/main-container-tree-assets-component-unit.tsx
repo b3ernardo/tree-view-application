@@ -1,5 +1,6 @@
 import Image from 'next/image'
 
+import { useTreeAssetsStore } from '@/stores/tree-assets-store'
 import { IAsset } from '@/types/tree-assets-types'
 
 interface MainContainerTreeAssetsComponentUnitProps {
@@ -9,6 +10,11 @@ interface MainContainerTreeAssetsComponentUnitProps {
 export default function MainContainerTreeAssetsComponentUnit({
   component
 }: MainContainerTreeAssetsComponentUnitProps) {
+  const selectedUnitId = useTreeAssetsStore((state) => state.selectedUnitId)
+  const setSelectedUnitId = useTreeAssetsStore(
+    (state) => state.setSelectedUnitId
+  )
+
   const renderStatusIndicator = () => {
     if (
       component.sensorType === 'vibration' ||
@@ -46,11 +52,23 @@ export default function MainContainerTreeAssetsComponentUnit({
     return null
   }
 
+  const handleClick = () => {
+    if (selectedUnitId === component.id) {
+      setSelectedUnitId('')
+    } else {
+      setSelectedUnitId(component.id)
+    }
+  }
+
   return (
     <div style={{ marginLeft: '20px' }}>
       <div
+        onClick={handleClick}
         style={{
           alignItems: 'center',
+          backgroundColor:
+            selectedUnitId === component.id ? '#2188FF' : 'initial',
+          color: selectedUnitId === component.id ? '#FFFFFF' : '#17192D',
           cursor: 'pointer',
           display: 'flex',
           gap: '8px',
@@ -61,7 +79,11 @@ export default function MainContainerTreeAssetsComponentUnit({
         <Image
           alt='Component icon'
           height={22}
-          src='/component.png'
+          src={
+            selectedUnitId === component.id
+              ? '/component-selected.png'
+              : '/component.png'
+          }
           width={22}
         />
         <div className='text-assets'>{component.name}</div>

@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 import MainContainerTreeAssetsComponentUnit from '../main-container-tree-assets-component-unit/main-container-tree-assets-component-unit'
+import { useTreeAssetsStore } from '@/stores/tree-assets-store'
 import { IAsset } from '@/types/tree-assets-types'
 
 interface MainContainerTreeAssetsAssetUnitProps {
@@ -13,6 +14,10 @@ export default function MainContainerTreeAssetsAssetUnit({
   asset,
   assets
 }: MainContainerTreeAssetsAssetUnitProps) {
+  const selectedUnitId = useTreeAssetsStore((state) => state.selectedUnitId)
+  const setSelectedUnitId = useTreeAssetsStore(
+    (state) => state.setSelectedUnitId
+  )
   const [isCollapsed, setIsCollapsed] = useState(true)
 
   const components = assets.filter(
@@ -28,9 +33,15 @@ export default function MainContainerTreeAssetsAssetUnit({
   const hasSubAssets = subAssets.length > 0
   const hasComponents = components.length > 0
 
-  const toggleCollapse = () => {
+  const handleClick = () => {
     if (hasSubAssets || hasComponents) {
       setIsCollapsed(!isCollapsed)
+    } else {
+      if (selectedUnitId === asset.id) {
+        setSelectedUnitId('')
+      } else {
+        setSelectedUnitId(asset.id)
+      }
     }
   }
 
@@ -72,9 +83,11 @@ export default function MainContainerTreeAssetsAssetUnit({
   return (
     <div style={{ marginLeft: '20px' }}>
       <div
-        onClick={toggleCollapse}
+        onClick={handleClick}
         style={{
           alignItems: 'center',
+          backgroundColor: selectedUnitId === asset.id ? '#2188FF' : 'initial',
+          color: selectedUnitId === asset.id ? '#FFFFFF' : '#17192D',
           cursor: hasSubAssets || hasComponents ? 'default' : 'pointer',
           display: 'flex',
           gap: '8px',
@@ -98,7 +111,9 @@ export default function MainContainerTreeAssetsAssetUnit({
         <Image
           alt='Asset icon'
           height={22}
-          src='/asset.png'
+          src={
+            selectedUnitId === asset.id ? '/asset-selected.png' : '/asset.png'
+          }
           width={22}
         />
         <div className='text-assets'>{asset.name}</div>
