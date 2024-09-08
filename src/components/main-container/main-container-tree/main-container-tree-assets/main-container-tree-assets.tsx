@@ -18,7 +18,13 @@ export default function MainContainerTreeAssets({
   )
 
   return (
-    <div style={{ marginLeft: '-8px', paddingTop: '8px' }}>
+    <div
+      style={{
+        height: '70vh',
+        overflowY: 'auto',
+        paddingTop: '8px'
+      }}
+    >
       {rootLocations.map((location) => (
         <MainContainerTreeAssetsLocationUnit
           assets={assets}

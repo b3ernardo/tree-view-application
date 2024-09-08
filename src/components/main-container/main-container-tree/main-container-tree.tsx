@@ -9,7 +9,9 @@ import axios from 'axios'
 export default function MainContainerTree() {
   const companyId = useTreeAssetsStore((state) => state.companyId)
 
-  const { data: locations } = useQuery<ILocation[]>({
+  const { data: locations, isPending: isPendingLocations } = useQuery<
+    ILocation[]
+  >({
     queryFn: async () => {
       const res = await axios.get(
         `https://fake-api.tractian.com/companies/${companyId}/locations`
@@ -19,7 +21,7 @@ export default function MainContainerTree() {
     queryKey: ['companies', companyId, 'locations']
   })
 
-  const { data: assets } = useQuery<IAsset[]>({
+  const { data: assets, isPending: isPendingAssets } = useQuery<IAsset[]>({
     queryFn: async () => {
       const res = await axios.get(
         `https://fake-api.tractian.com/companies/${companyId}/assets`
@@ -30,8 +32,29 @@ export default function MainContainerTree() {
   })
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+    <div
+      style={{
+        border: '1px solid #E3EAEF',
+        display: 'flex',
+        flexDirection: 'column',
+        height: '95%'
+      }}
+    >
       <MainContainerTreeSearchBox />
+
+      {(isPendingLocations || isPendingAssets) && (
+        <div
+          style={{
+            alignItems: 'center',
+            display: 'flex',
+            height: '100%',
+            justifyContent: 'center'
+          }}
+        >
+          <div>Carregando dados...</div>
+        </div>
+      )}
+
       {locations && assets && (
         <MainContainerTreeAssets
           assets={assets}
