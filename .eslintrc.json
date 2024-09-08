@@ -44,7 +44,7 @@
               "groups": [
                   ["/^react/", "/^next/", "/@next/"],
                   "/module/",
-                  ["/^@/components/", "/^@/hooks/", "/^@/contexts/", "/^@/providers/", "/^@/utils/", "/^@/types/", "sibling", "parent", "index"],
+                  ["/^@/components/", "/^@/hooks/", "/^@/stores/", "/^@/providers/", "/^@/utils/", "/^@/types/", "sibling", "parent", "index"],
                   "/absolute/"
               ],
               "alphabetize": { 

@@ -4,9 +4,14 @@
     align-items: center;
     justify-content: center;
   }
+
   header #cards-menu-container {
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  div.main-container-header {
+    flex-direction: column;
   }
 }
 
@@ -28,4 +33,20 @@
   100% {
     background-color: #2C2E3E;
   }
+}
+
+button.main-container-header-buttons { 
+  background-color: transparent;
+  border: 1px solid #E3EAEF;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 3px;
+  padding: 6px 16px 6px 14px;
+  color: #77818C;
+  transition: 0.5s;
+  cursor: pointer;
+  font-size: 14px;
+  height: 32px;
+  font-weight: 600;
 }

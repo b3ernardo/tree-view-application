@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import { useRouter, useSearchParams } from 'next/navigation'
 
-import { ICompany } from '@/types/types'
+import { useTreeAssetsStore } from '@/stores/tree-assets-store'
+import { ICompany } from '@/types/tree-assets-types'
 
 interface IMainHeaderCompanyCardProps {
   company: ICompany
@@ -10,12 +10,14 @@ interface IMainHeaderCompanyCardProps {
 export default function MainHeaderCompanyCard({
   company
 }: IMainHeaderCompanyCardProps) {
-  const router = useRouter()
-  const searchParams = useSearchParams()
+  const companyId = useTreeAssetsStore((state) => state.companyId)
+  const setCompanyId = useTreeAssetsStore((state) => state.setCompanyId)
+  const setCompanyName = useTreeAssetsStore((state) => state.setCompanyName)
 
   const handleClick = () => {
     if (company?.id) {
-      router.push(`/?companyId=${company.id}`)
+      setCompanyId(company.id)
+      setCompanyName(company.name)
     }
   }
 
@@ -24,8 +26,7 @@ export default function MainHeaderCompanyCard({
       onClick={handleClick}
       style={{
         alignItems: 'center',
-        backgroundColor:
-          searchParams.get('companyId') === company?.id ? '#2188FF' : '#17192D',
+        backgroundColor: companyId === company?.id ? '#2188FF' : '#023B78',
         borderRadius: '2px',
         color: '#FFFFFF',
         cursor: 'pointer',

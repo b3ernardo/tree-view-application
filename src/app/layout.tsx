@@ -18,7 +18,7 @@ export default function RootLayout({ children }: IRootLayoutProps) {
     <html lang='en'>
       <body
         className={inter.className}
-        style={{ margin: 0 }}
+        style={{ backgroundColor: '#E3EAEF', margin: 0 }}
       >
         {children}
       </body>

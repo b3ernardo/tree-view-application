@@ -1,16 +1,18 @@
 import Image from 'next/image'
-import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 
 import MainHeaderCompanyCard from './main-header-company-card/main-header-company-card'
-import { ICompany } from '@/types/types'
+import { useTreeAssetsStore } from '@/stores/tree-assets-store'
+import { ICompany } from '@/types/tree-assets-types'
 
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 
 export default function MainHeader() {
-  const router = useRouter()
-  const searchParams = useSearchParams()
+  const companyId = useTreeAssetsStore((state) => state.companyId)
+  const companyName = useTreeAssetsStore((state) => state.companyName)
+  const setCompanyId = useTreeAssetsStore((state) => state.setCompanyId)
+  const setCompanyName = useTreeAssetsStore((state) => state.setCompanyName)
 
   const { data: companies, isPending } = useQuery({
     queryFn: async () => {
@@ -21,18 +23,15 @@ export default function MainHeader() {
   })
 
   useEffect(() => {
-    if (companies && companies.length > 0) {
-      const companyIdFromUrl = searchParams.get('companyId')
-      const isValidCompanyId = companies.some(
-        (company: ICompany) => company.id === companyIdFromUrl
-      )
-
-      if (!companyIdFromUrl || !isValidCompanyId) {
-        const defaultCompanyId = companies[0].id
-        router.replace(`/?companyId=${defaultCompanyId}`)
-      }
+    if (
+      companies &&
+      companies.length > 0 &&
+      (companyId === '' || companyName === '')
+    ) {
+      setCompanyId(companies[0].id)
+      setCompanyName(companies[0].name)
     }
-  }, [companies, searchParams, router])
+  }, [companies, companyId, companyName])
 
   return (
     <header
