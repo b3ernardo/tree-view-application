@@ -1,4 +1,5 @@
 import MainContainerHeader from './main-container-header/main-container-header'
+import MainContainerTree from './main-container-tree/main-container-tree'
 
 export default function MainContainer() {
   return (
@@ -13,9 +14,9 @@ export default function MainContainer() {
       }}
     >
       <MainContainerHeader />
-      <section>
-        {/* <TreeRender />
-        <ComponentDisplay /> */}
+      <section id='main-container'>
+        <MainContainerTree />
+        {/* <ComponentDetails /> */}
       </section>
     </main>
   )
