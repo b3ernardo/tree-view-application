@@ -1,3 +1,4 @@
+import MainContainerComponentDetails from './main-container-component-details/main-container-component-details'
 import MainContainerHeader from './main-container-header/main-container-header'
 import MainContainerTree from './main-container-tree/main-container-tree'
 
@@ -14,9 +15,9 @@ export default function MainContainer() {
       }}
     >
       <MainContainerHeader />
-      <section id='main-container'>
+      <section className='main-container'>
         <MainContainerTree />
-        {/* <ComponentDetails /> */}
+        <MainContainerComponentDetails />
       </section>
     </main>
   )

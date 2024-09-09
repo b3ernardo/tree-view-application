@@ -15,7 +15,7 @@ export default function MainContainerTreeSearchBox() {
     <div
       style={{
         alignItems: 'center',
-        border: '1px solid #E3EAEF',
+        borderBottom: '1px solid #E3EAEF',
         display: 'flex',
         gap: '8px',
         justifyContent: 'space-between',

@@ -31,6 +31,7 @@ export default function MainHeader() {
       setCompanyId(companies[0].id)
       setCompanyName(companies[0].name)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [companies, companyId, companyName])
 
   return (
@@ -52,7 +53,7 @@ export default function MainHeader() {
         width={102.95}
       />
       <div
-        id='cards-menu-container'
+        className='cards-menu-container'
         style={{
           alignItems: 'center',
           display: 'flex',
