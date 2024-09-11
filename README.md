@@ -39,7 +39,7 @@ npm install
 npm run dev
 ```
 4) Access the application: `http://localhost:3000`
-- You can also check the deployed app on Vercel: `https://tree-view-application.vercel.app/`
+- You can also check the deployed app on Vercel: [App](https://tree-view-application.vercel.app/)
 
 ## Video demo
 [Demo](https://youtu.be/oLt02HYkakI)
