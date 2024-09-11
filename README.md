@@ -1,5 +1,6 @@
 # tree-view-application
 Tree View Application that shows companies Assets
+- Check the video demonstrating the application opening for each company and selecting a filter: [Demo](https://youtu.be/oLt02HYkakI)
 
 # Project Description
 This project is a Tree View application for asset management, providing a hierarchical visualization of components, assets, and locations within a company. The dynamic tree structure displays asset and location hierarchies, with filtering capabilities to search for energy sensors and critical sensor statuses. Developed with Next.js for easy app routing and performance optimization, Zustand for state management, and React Query for data fetching and synchronization with the API. These are technologies I use regularly in my work and am highly familiar with, which is one of the reasons I chose them for this project. The application facilitates efficient navigation and filtering of asset hierarchies, enhancing the management and maintenance of company resources.
@@ -39,6 +40,9 @@ npm run dev
 ```
 4) Access the application: `http://localhost:3000`
 - You can also check the deployed app on Vercel: `https://tree-view-application.vercel.app/`
+
+## Video demo
+[Demo](https://youtu.be/oLt02HYkakI)
 
 ## Tree with filters
 ![filters](https://github.com/user-attachments/assets/495ff477-4458-4a41-903f-d60811db5cbb)
