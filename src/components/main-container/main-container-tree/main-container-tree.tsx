@@ -31,6 +31,10 @@ export default function MainContainerTree() {
     ILocation[]
   >({
     queryFn: async () => {
+      if (companyId === '') {
+        return []
+      }
+
       const res = await axios.get(
         `https://fake-api.tractian.com/companies/${companyId}/locations`
       )
@@ -41,6 +45,10 @@ export default function MainContainerTree() {
 
   const { data: assets, isPending: isPendingAssets } = useQuery<IAsset[]>({
     queryFn: async () => {
+      if (companyId === '') {
+        return []
+      }
+
       const res = await axios.get(
         `https://fake-api.tractian.com/companies/${companyId}/assets`
       )

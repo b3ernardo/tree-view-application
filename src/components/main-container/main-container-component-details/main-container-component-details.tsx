@@ -13,6 +13,10 @@ export default function MainContainerComponentDetails() {
 
   const { data: assets, isSuccess } = useQuery<IAsset[]>({
     queryFn: async () => {
+      if (companyId === '') {
+        return []
+      }
+
       const res = await axios.get(
         `https://fake-api.tractian.com/companies/${companyId}/assets`
       )
