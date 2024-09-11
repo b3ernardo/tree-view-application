@@ -15,7 +15,7 @@ This project is a Tree View application for asset management, providing a hierar
 - Additionally, I used Prettier and ESLint along with a series of plugins to enforce consistent code formatting and best practices. This helps to ensure clean, maintainable code, while preventing errors and improving the overall readability and structure of the project.
 
 ## Points of the project I would improve if I had more time...
-- Testing: I would implement unit, integration, and end-to-end tests to ensure robust functionality and code coverage, targeting at least X% coverage. This would help in catching bugs early and maintaining the overall quality of the code.
+- Testing: I would implement unit, integration, and end-to-end tests to ensure robust functionality and code coverage, targeting at least 80% coverage. This would help in catching bugs early and maintaining the overall quality of the code.
 - CSS Standardization: I would refine the CSS by applying stricter design standards and potentially integrating CSS libraries to improve maintainability and consistency across components.
 - Data Fetching and Rendering Optimization: I would enhance the data fetching and rendering algorithms, particularly for handling large data sets, as I noticed some minor performance bottlenecks with large data sources, specifically in rendering the Locations.
 - Component Refactoring: I would break down some of the larger components into smaller, more manageable pieces. Additionally, I would create custom hooks or utility functions to streamline logic and improve code reusability.
