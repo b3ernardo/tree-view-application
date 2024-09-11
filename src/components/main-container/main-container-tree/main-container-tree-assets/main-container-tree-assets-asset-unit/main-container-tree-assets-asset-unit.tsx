@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { useState } from 'react'
+import React from 'react'
 
 import MainContainerTreeAssetsComponentUnit from '../main-container-tree-assets-component-unit/main-container-tree-assets-component-unit'
 import { useTreeAssetsStore } from '@/stores/tree-assets-store'
@@ -10,7 +11,7 @@ interface MainContainerTreeAssetsAssetUnitProps {
   assets: IAsset[]
 }
 
-export default function MainContainerTreeAssetsAssetUnit({
+function MainContainerTreeAssetsAssetUnit({
   asset,
   assets
 }: MainContainerTreeAssetsAssetUnitProps) {
@@ -139,3 +140,5 @@ export default function MainContainerTreeAssetsAssetUnit({
     </div>
   )
 }
+
+export default React.memo(MainContainerTreeAssetsAssetUnit)

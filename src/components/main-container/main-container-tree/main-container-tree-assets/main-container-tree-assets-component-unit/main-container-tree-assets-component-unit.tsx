@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import React from 'react'
 
 import { useTreeAssetsStore } from '@/stores/tree-assets-store'
 import { IAsset } from '@/types/tree-assets-types'
@@ -7,7 +8,7 @@ interface MainContainerTreeAssetsComponentUnitProps {
   component: IAsset
 }
 
-export default function MainContainerTreeAssetsComponentUnit({
+function MainContainerTreeAssetsComponentUnit({
   component
 }: MainContainerTreeAssetsComponentUnitProps) {
   const selectedUnitId = useTreeAssetsStore((state) => state.selectedUnitId)
@@ -92,3 +93,5 @@ export default function MainContainerTreeAssetsComponentUnit({
     </div>
   )
 }
+
+export default React.memo(MainContainerTreeAssetsComponentUnit)
